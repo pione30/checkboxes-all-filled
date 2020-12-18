@@ -1,0 +1,24 @@
+{
+  "name": "checkboxes-all-filled",
+  "version": "1.0.0",
+  "description": "Check if all checkboxes in a PR description are filled",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pepabo",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3"
+  }
+}

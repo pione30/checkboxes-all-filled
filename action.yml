@@ -1,0 +1,13 @@
+name: 'Checkboxes All Filled'
+description: 'Check if all checkboxes in a PR description are filled'
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time:
+    description: 'The time we greeted you'
+runs:
+  using: 'node12'
+  main: 'index.js'
