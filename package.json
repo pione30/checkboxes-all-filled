@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "build": "ncc build src/index.ts --license licenses.txt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "pepabo",
