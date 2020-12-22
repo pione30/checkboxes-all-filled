@@ -6,6 +6,13 @@
   "private": true,
   "scripts": {
     "build": "ncc build src/index.ts --license licenses.txt",
+    "lint:prettier": "prettier --check src",
+    "fix:prettier": "prettier --write src",
+    "lint:eslint": "eslint --ext .ts src",
+    "fix:eslint": "eslint --ext .ts --fix src",
+    "lint": "npm run lint:prettier && npm run lint:eslint",
+    "fix": "npm run fix:prettier && npm run fix:eslint",
+    "typecheck": "tsc -p . --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "pepabo",
