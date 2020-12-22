@@ -1,5 +1,6 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
+import { extractLinesWithUnfilledCheckbox } from "./extractor";
 
 try {
   if (github.context.eventName !== "pull_request") {
@@ -12,7 +13,11 @@ try {
     );
   }
 
-  core.info(github.context.payload.pull_request.body ?? "");
+  const linesWithUnfilledCheckbox = extractLinesWithUnfilledCheckbox(
+    github.context.payload.pull_request.body ?? ""
+  );
+
+  core.info(linesWithUnfilledCheckbox.join("\n"));
 } catch (error) {
   core.setFailed(error.message);
 }
