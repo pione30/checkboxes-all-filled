@@ -17,7 +17,15 @@ try {
     github.context.payload.pull_request.body ?? ""
   );
 
-  core.info(linesWithUnfilledCheckbox.join("\n"));
+  if (linesWithUnfilledCheckbox.length > 0) {
+    core.setFailed(
+      `Unfilled checkboxes are found in your PR:\n${linesWithUnfilledCheckbox.join(
+        "\n"
+      )}`
+    );
+  } else {
+    core.info("No unfilled checkbox is found.");
+  }
 } catch (error) {
   core.setFailed(error.message);
 }

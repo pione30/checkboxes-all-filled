@@ -5821,7 +5821,12 @@ try {
         throw new Error("The requested payload seems NOT to be one of the Pull Request API.");
     }
     const linesWithUnfilledCheckbox = extractor_1.extractLinesWithUnfilledCheckbox((_a = github.context.payload.pull_request.body) !== null && _a !== void 0 ? _a : "");
-    core.info(linesWithUnfilledCheckbox.join("\n"));
+    if (linesWithUnfilledCheckbox.length > 0) {
+        core.setFailed(`Unfilled checkboxes are found in your PR:\n${linesWithUnfilledCheckbox.join("\n")}`);
+    }
+    else {
+        core.info("No unfilled checkbox is found.");
+    }
 }
 catch (error) {
     core.setFailed(error.message);
