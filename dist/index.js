@@ -5785,6 +5785,18 @@ exports.extractLinesWithUnfilledCheckbox = extractLinesWithUnfilledCheckbox;
 /***/ }),
 
 /***/ 144:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const main_1 = __webpack_require__(399);
+main_1.main();
+
+
+/***/ }),
+
+/***/ 399:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -5808,29 +5820,33 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.main = void 0;
 const core = __importStar(__webpack_require__(186));
 const github = __importStar(__webpack_require__(438));
 const extractor_1 = __webpack_require__(629);
-try {
-    if (github.context.eventName !== "pull_request") {
-        throw new Error("This action must be triggered by `pull_request` event.");
+const main = () => {
+    var _a;
+    try {
+        if (github.context.eventName !== "pull_request") {
+            throw new Error("This action must be triggered by `pull_request` event.");
+        }
+        if (github.context.payload.pull_request === undefined) {
+            throw new Error("The requested payload seems NOT to be one of the Pull Request API.");
+        }
+        const linesWithUnfilledCheckbox = extractor_1.extractLinesWithUnfilledCheckbox((_a = github.context.payload.pull_request.body) !== null && _a !== void 0 ? _a : "");
+        if (linesWithUnfilledCheckbox.length > 0) {
+            core.setFailed(`Unfilled checkboxes are found in your PR:\n${linesWithUnfilledCheckbox.join("\n")}`);
+        }
+        else {
+            core.info("No unfilled checkbox is found.");
+        }
     }
-    if (github.context.payload.pull_request === undefined) {
-        throw new Error("The requested payload seems NOT to be one of the Pull Request API.");
+    catch (error) {
+        core.setFailed(error.message);
     }
-    const linesWithUnfilledCheckbox = extractor_1.extractLinesWithUnfilledCheckbox((_a = github.context.payload.pull_request.body) !== null && _a !== void 0 ? _a : "");
-    if (linesWithUnfilledCheckbox.length > 0) {
-        core.setFailed(`Unfilled checkboxes are found in your PR:\n${linesWithUnfilledCheckbox.join("\n")}`);
-    }
-    else {
-        core.info("No unfilled checkbox is found.");
-    }
-}
-catch (error) {
-    core.setFailed(error.message);
-}
+};
+exports.main = main;
 
 
 /***/ }),
