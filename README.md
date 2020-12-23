@@ -1,6 +1,6 @@
-## 使い方
+## Usage
 
-以下のような yaml を `.github/workflows/checklist.yml` のような適当な名前でリポジトリに追加してください:
+Add an yaml like below as `.github/workflows/checklist.yml` or something to your repository:
 
 ```yml
 name: Checklist
@@ -18,12 +18,12 @@ jobs:
     name: Checkboxes All Filled
     runs-on: self-hosted
     steps:
-      - name: Uses pepactions/checkboxes-all-filled
-        uses: pepactions/checkboxes-all-filled@v1
+      - name: Uses checkboxes-all-filled
+        uses: pione30/checkboxes-all-filled@v1
 ```
 
-## 開発
+## Development
 
-`src` 配下のコードを変更したら `npm run build` を実行し、`dist` に吐かれた成果物も一緒に commit してください。
+When you change the codes under `src` directory, then `npm run build` to build and commit the outputs under `dist` directory.
 
-新しいバージョンをリリースするときはドキュメントで [推奨されている](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/about-actions#using-tags-for-release-management) ように release ブランチを作って検証し、merge したら [tag を打つ](https://git-scm.com/book/en/v2/Git-Basics-Tagging) ようにするのが良いでしょう。バージョニングは [Semantic Versioning](https://semver.org/lang/ja/) に従いましょう。
+When to release the new version, firstly create relese branch to verify (as recommended on the [document](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/about-actions#using-tags-for-release-management)).
