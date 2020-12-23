@@ -16,7 +16,7 @@ on:
 jobs:
   checkboxes-all-filled:
     name: Checkboxes All Filled
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Uses checkboxes-all-filled
         uses: pione30/checkboxes-all-filled@v1
