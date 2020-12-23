@@ -1,0 +1,17 @@
+name: Checklist
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - edited
+      - ready_for_review
+
+jobs:
+  checkboxes-all-filled:
+    name: Checkboxes All Filled
+    runs-on: ubuntu-latest
+    steps:
+      - name: Uses checkboxes-all-filled
+        uses: pione30/checkboxes-all-filled@v1
