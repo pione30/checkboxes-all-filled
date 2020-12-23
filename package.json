@@ -15,7 +15,7 @@
     "typecheck": "tsc -p . --noEmit",
     "test": "jest --colors"
   },
-  "author": "pepabo",
+  "author": "pione30 <g.pionelish30@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6",

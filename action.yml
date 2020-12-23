@@ -1,4 +1,5 @@
 name: 'Checkboxes All Filled'
+author: 'pione30 <g.pionelish30@gmail.com>'
 description: 'Check if all checkboxes in a PR description are filled'
 runs:
   using: 'node12'
