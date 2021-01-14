@@ -11,6 +11,7 @@ on:
       - opened
       - reopened
       - edited
+      - synchronize
       - ready_for_review
 
 jobs:
